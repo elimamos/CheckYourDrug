@@ -24,7 +24,8 @@
             android:value="orc" />
 
         <activity android:name=".scanner" />
-        <activity android:name=".info"></activity>
+        <activity android:name=".info" />
+        <activity android:name=".CheckScannedText"></activity>
     </application>
 
 </manifest>

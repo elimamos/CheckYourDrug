@@ -1,11 +1,12 @@
 package com.example.elisa.checkyourdrug;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
@@ -18,12 +19,14 @@ import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class scanner extends AppCompatActivity {
 
     SurfaceView cameraView;
     TextView textView;
     CameraSource cameraSource;
+    String mystring;
     final int RequestCameraPermissionID = 1001;
 
 
@@ -47,11 +50,12 @@ public class scanner extends AppCompatActivity {
         }
     }
 
-
+    ArrayList<String> readWordsList= new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
+        readWordsList.clear();
         cameraView = (SurfaceView) findViewById(R.id.surfaceView);
         textView = (TextView) findViewById(R.id.textView);
 
@@ -103,7 +107,6 @@ public class scanner extends AppCompatActivity {
 
                 @Override
                 public void receiveDetections(Detector.Detections<TextBlock> detections) {
-
                     final SparseArray<TextBlock> items = detections.getDetectedItems();
                     if(items.size() != 0)
                     {
@@ -114,10 +117,29 @@ public class scanner extends AppCompatActivity {
                                 for(int i =0;i<items.size();++i)
                                 {
                                     TextBlock item = items.valueAt(i);
-                                    stringBuilder.append(item.getValue());
-                                    stringBuilder.append("\n");
+                                    String[] some=item.getValue().split(" ");
+                                    stringBuilder.append(some[0]);
+                                   // stringBuilder.append("\n");
+                                    String read= stringBuilder.toString();
+                                    read=read.trim();
+                                    if(!readWordsList.contains(read)){
+                                        readWordsList.add(read);
+                                    }
+                                    if(readWordsList.size()==5){
+                                        Intent intent= new Intent(getBaseContext(),CheckScannedText.class);
+                                        intent.putExtra("String",readWordsList);
+                                        startActivity(intent);
+
+                                          Log.d("TEST",readWordsList.get(0)+ " | "+readWordsList.get(1)+ " | "+readWordsList.get(2)+ " | "+readWordsList.get(3)+ " | "+readWordsList.get(4));
+                                    }
+                                  //  Log.d("TEST",stringBuilder.toString());
                                 }
                                 textView.setText(stringBuilder.toString());
+                                mystring=textView.getText().toString();
+                              //  Log.d("TEST",mystring);
+                               /* Intent i= new Intent(getBaseContext(),info.class);
+                                i.putExtra("String",mystring);
+                                startActivity(i);*/
                             }
                         });
                     }
