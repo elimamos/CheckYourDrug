@@ -8,6 +8,10 @@
         <servlet-name>DatabaseAccess</servlet-name>
         <servlet-class>DatabaseAccess</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckPassword</servlet-name>
+        <servlet-class>CheckPassword</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>databaseCreateServlet</servlet-name>
         <url-pattern>/databaseCreateServlet</url-pattern>
@@ -16,6 +20,11 @@
         <servlet-name>DatabaseAccess</servlet-name>
         <url-pattern>/DatabaseAccess</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckPassword</servlet-name>
+        <url-pattern>/CheckPassword</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
