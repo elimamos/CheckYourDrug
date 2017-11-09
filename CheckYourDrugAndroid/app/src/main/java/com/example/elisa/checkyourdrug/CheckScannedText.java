@@ -39,5 +39,8 @@ public class CheckScannedText extends AppCompatActivity {
             name=name.trim();
         }
         Log.d("FINAL NAME",name);
+
+        SendingToServer sts = new SendingToServer();
+        sts.checkServerConnected();
     }
 }
