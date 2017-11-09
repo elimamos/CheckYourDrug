@@ -42,7 +42,7 @@ public class DatabaseCreator {
                     + " name VARCHAR(255) NOT NULL, "
                     + " substance VARCHAR(255), "
                     + " similar VARCHAR(255), "
-                    + " price decimal(4,2),"
+                    + " price VARCHAR(255),"
                     + " PRIMARY KEY (ID))";
 
             stmt.executeUpdate(sql);

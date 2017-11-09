@@ -15,7 +15,7 @@ public class DatabaseTakeFromTable {
 
     static final String USER = "root";
     static final String PASS = "";
-    static final String DB_NAME = "baza";
+    static final String DB_NAME = "CheckYourDrug";
     
     public List<Database> databaseTable()
     {
@@ -39,7 +39,7 @@ public class DatabaseTakeFromTable {
                 String name = rs.getString("name");
                 String substance = rs.getString("substance");
                 String similar = rs.getString("similar");
-                Double price = rs.getDouble("price");
+                String price = rs.getString("price");
                 
                 list.add(new Database(ID, name, substance, similar, price));
             }

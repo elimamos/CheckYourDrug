@@ -5,9 +5,9 @@ public class Database {
     String name;
     String substance;
     String similar;
-    Double price;
+    String price;
 
-    Database(int ID, String name, String substance, String similar, Double price) {
+    Database(int ID, String name, String substance, String similar,String price) {
         this.ID=ID;
         this.name=name;
         this.substance= substance;

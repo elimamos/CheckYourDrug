@@ -10,9 +10,9 @@ public class DatabaseAddToTable {
 
     static final String USER = "root";
     static final String PASS = "";
-    static final String DB_NAME = "baza";
+    static final String DB_NAME = "CheckYourDrug";
     
-    public void databaseTable(String name, String substance, String similar, Double price)
+    public void databaseTable(String name, String substance, String similar, String price)
     {
         Connection conn = null;
         Statement stmt = null;
@@ -26,8 +26,13 @@ public class DatabaseAddToTable {
             //ResultSet md = conn.getMetaData().getCatalogs();
             stmt=conn.createStatement();
             String sql = "INSERT INTO drugs (ID, name, substance, similar, price)" + "VALUES (null, '"+name+"', '"+substance+"', '"+similar+"', '"+price+"')";
-            stmt.executeUpdate(sql);
+           System.out.println(sql);
+           // stmt.executeUpdate(sql);
+           if(stmt.execute(sql)){
             System.out.println("dodano nowe rekordy do bazy");
+           }
+           else{
+            System.out.println("NIE dodano nowe rekordy do bazy");}
 
         }catch(Exception e){
             System.out.println("blad "+e);
