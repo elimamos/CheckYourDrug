@@ -5,9 +5,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.soap.AddressingFeature;
 
 public class DatabaseTakeFromTable {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -17,7 +14,7 @@ public class DatabaseTakeFromTable {
     static final String PASS = "";
     static final String DB_NAME = "CheckYourDrug";
     
-    public List<Database> databaseTable()
+    public List<Database> databaseTable(String table)
     {
         Connection conn = null;
         Statement stmt = null;
@@ -29,12 +26,12 @@ public class DatabaseTakeFromTable {
             
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("polaczenie z baza");
-            String sql = "SELECT * FROM drugs";
+            String sql = "SELECT * FROM "+table+"";
             stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            
-            while(rs.next()){
+            switch(table){
+                case "drugs":{
+                    while(rs.next()){
                 int ID = rs.getInt("ID");
                 String name = rs.getString("name");
                 String substance = rs.getString("substance");
@@ -43,12 +40,24 @@ public class DatabaseTakeFromTable {
                 
                 list.add(new Database(ID, name, substance, similar, price));
             }
-            
-            System.out.println("wyswietlono baze");
+                    break;
+                }
+                case "missingdrugs":{
+                    while(rs.next()){
+                int ID = rs.getInt("ID");
+                String name = rs.getString("name");
+                
+                list.add(new Database(ID, name, "", "", ""));
+            }
+                    break;
+                }
+            }
+
 
         }catch(Exception e){
-            System.out.println("blad "+e);
+            System.out.println("Error "+e);
         } 
         return list;
     }
+
 }

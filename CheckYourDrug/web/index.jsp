@@ -8,13 +8,14 @@
     <body>
         <div class="top" style="text-align: center"><h1>CheckingYourDrugs</h1></div>
         
-        <div style="text-align: center;">
+        <div style="text-align: center;">  
             <form method="post" action="logIn.jsp">
                 <input type="submit" value="Log In" style="padding: 5px 60px; background-color: white; border-radius: 8px;">
             </form>           
         </div>
         </br>
-        <jsp:include page="/DatabaseAccess" />
+        
+<jsp:include page="/DatabaseAccess" />
 
     </body>
 </html>

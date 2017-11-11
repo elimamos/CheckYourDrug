@@ -22,20 +22,14 @@ public class DatabaseAddToTable {
             
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("polaczenie z baza");
             //ResultSet md = conn.getMetaData().getCatalogs();
             stmt=conn.createStatement();
-            String sql = "INSERT INTO drugs (ID, name, substance, similar, price)" + "VALUES (null, '"+name+"', '"+substance+"', '"+similar+"', '"+price+"')";
-           System.out.println(sql);
-           // stmt.executeUpdate(sql);
-           if(stmt.execute(sql)){
-            System.out.println("dodano nowe rekordy do bazy");
-           }
-           else{
-            System.out.println("NIE dodano nowe rekordy do bazy");}
-
+            String sqlTableDrugs = "INSERT INTO drugs (ID, name, substance, similar, price)" + "VALUES (null, '"+name+"', '"+substance+"', '"+similar+"', '"+price+"')";
+            String sqlTableMissingDrugs = "DELETE FROM missingdrugs WHERE name='"+name+"'";
+            stmt.executeUpdate(sqlTableDrugs);
+            stmt.executeUpdate(sqlTableMissingDrugs);
         }catch(Exception e){
-            System.out.println("blad "+e);
+            System.out.println("Error "+e);
         } 
         
     }
