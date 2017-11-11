@@ -1,7 +1,8 @@
 
-
-
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-public class CheckPassword extends HttpServlet{
+public class AdminPage extends HttpServlet{
     
     String name;
     String substance;
@@ -18,7 +19,24 @@ public class CheckPassword extends HttpServlet{
     String price;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    PrintWriter out = response.getWriter(); 
+    List<Database> list = new ArrayList<Database>(); 
+        DatabaseTakeFromTable dcTakeFromTable = new DatabaseTakeFromTable(); 
+        //list = dcTakeFromTable.databaseTable(); 
+        list=dcTakeFromTable.databaseTable("drugs"); 
+        out.print("<h3>List of drugs in database</h3>"); 
+        out.print("<div>"); 
+        for(Database db : list){ 
+                out.print(db.name+"; "); 
+        } 
+        out.print("</div>"); 
+        list=dcTakeFromTable.databaseTable("missingdrugs"); 
+        out.print("<h3>List of missing drugs in database</h3>"); 
+        out.print("<div>"); 
+        for(Database db : list){ 
+                out.print(db.name+"; "); 
+        } 
     }
 
     
@@ -47,6 +65,7 @@ public class CheckPassword extends HttpServlet{
             }
          DatabaseAddToTable dbAddToTable = new DatabaseAddToTable();
         dbAddToTable.databaseTable(name, substance, similar, price);
+        response.sendRedirect("/CheckYourDrug/adminAccount.jsp");
        }
        else{
            
