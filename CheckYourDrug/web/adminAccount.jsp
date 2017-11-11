@@ -3,13 +3,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin Account</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <jsp:include page="/AdminPage"/>
+        
         <div style="text-align: center">
-        <h3>Add objects to database</h3><br/>
-        <form action="AdminPage" method="post">
+        <h1>Uzupelnij baze danych</h1><br/>
+        <form action="CheckPassword" method="post">
             <p>Name:</p>
             <input type="text" name="name"/>
             <p>Substance:</p>
@@ -17,7 +17,7 @@
             <p>Similar:</p>
             <input type="text" name="similar"/>
             <p>Price:</p>
-            <input type="text" name="price"/><br/><br/>
+            <input type="text" name="price"/><br/>
             <input type="submit" value="send"/>
         </form>
         
