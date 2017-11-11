@@ -24,7 +24,7 @@ public class DatabaseAccess extends HttpServlet {
         
         //pobranie danych z bazy do listy
         DatabaseTakeFromTable dcTakeFromTable = new DatabaseTakeFromTable();
-        list=dcTakeFromTable.databaseTable("drugs");
+        list=dcTakeFromTable.databaseTable();
     };
    
    // REST 
@@ -35,7 +35,7 @@ public class DatabaseAccess extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         DatabaseTakeFromTable dcTakeFromTable = new DatabaseTakeFromTable();
-        list=dcTakeFromTable.databaseTable("drugs");
+        list=dcTakeFromTable.databaseTable();
         Random r = new Random();
         String[] table = {"#ccffcc", "#ffffcc", "#ffcccc", "#cce6ff", "#ffcccc", "#ffccff"};
         PrintWriter out = response.getWriter();
@@ -68,11 +68,19 @@ public class DatabaseAccess extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         if(nameOfLogin.equals(login) && nameOfPassword.equals(password)){
-            response.sendRedirect("/CheckYourDrug/adminAccount.jsp");
+            request.getRequestDispatcher("/adminAccount.jsp").forward(request, response);
         }
         else{
-            response.sendRedirect("/CheckYourDrug/index.jsp");
+            //response.sendRedirect("/index.jsp");
+            request.getRequestDispatcher("/checkLogin.jsp").forward(request, response);
         }
+        doGet(request, response);
         }
-   
+
+    @Override
+    protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       // super.doOptions(req, resp); 
+}   
+    
+    
 }
