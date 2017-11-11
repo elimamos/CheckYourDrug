@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.soap.AddressingFeature;
 
 public class DatabaseTakeFromTable {
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static String DB_URL = "jdbc:mysql://localhost:3306/checkyourdrug";
+       static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static String DB_URL = "https://node48511-przetwarzaie.unicloud.pl";
 
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "U3czgEov5w";
     static final String DB_NAME = "CheckYourDrug";
-    
     public List<Database> databaseTable()
     {
         Connection conn = null;
