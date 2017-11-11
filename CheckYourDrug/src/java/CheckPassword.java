@@ -25,7 +25,9 @@ public class CheckPassword extends HttpServlet{
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+        String myString=request.getHeader("name");
+       System.out.print(myString);
+        response.sendRedirect("home");
         name = request.getParameter("name").trim();
         substance = request.getParameter("substance").trim();
         similar = request.getParameter("similar").trim();

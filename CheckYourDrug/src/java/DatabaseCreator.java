@@ -4,12 +4,11 @@ import java.sql.*;
 public class DatabaseCreator {
     // JDBC driver name and database URL
 
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static String DB_URL = "jdbc:mysql://localhost:3306";
+     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static String DB_URL = "https://node48511-przetwarzaie.unicloud.pl";
 
-    //  Database credentials
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "U3czgEov5w";
     static final String DB_NAME = "CheckYourDrug";
 
     public void databaseCreate() {
