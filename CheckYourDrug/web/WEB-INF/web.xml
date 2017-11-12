@@ -9,8 +9,8 @@
         <servlet-class>DatabaseAccess</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AdminPage</servlet-name>
-        <servlet-class>AdminPage</servlet-class>
+        <servlet-name>CheckPassword</servlet-name>
+        <servlet-class>CheckPassword</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CheckDatabase</servlet-name>
@@ -29,8 +29,8 @@
         <url-pattern>/DatabaseAccess</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AdminPage</servlet-name>
-        <url-pattern>/AdminPage</url-pattern>
+        <servlet-name>CheckPassword</servlet-name>
+        <url-pattern>/CheckPassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CheckDatabase</servlet-name>

@@ -27,7 +27,7 @@
         </br>
         <section class="section">
            <div class="container">
-        <jsp:include page="/DatabaseAccess" />
+        <jsp:include page="DatabaseAccess" />
            </div>
         </section>
 

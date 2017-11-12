@@ -18,7 +18,7 @@ public class DatabaseTakeFromTable {
     
     static String DB_URL = "jdbc:mysql://node48511-przetwarzaie.unicloud.pl/"+DB_NAME;
 
-    public List<Database> databaseTable(String table)
+    public List<Database> databaseTable()
     {
         Connection conn = null;
         Statement stmt = null;
@@ -30,13 +30,12 @@ public class DatabaseTakeFromTable {
   
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            String sql = "SELECT * FROM "+table+"";
+            System.out.println("polaczenie z baza");
+            String sql = "SELECT * FROM drugs";
             stmt=conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             
-            switch (table){
-                case "drugs":{
-                    while(rs.next()){
+            while(rs.next()){
                 int ID = rs.getInt("ID");
                 String name = rs.getString("name");
                 String substance = rs.getString("substance");
@@ -44,22 +43,12 @@ public class DatabaseTakeFromTable {
                 String price = rs.getString("price");
                 
                 list.add(new Database(ID, name, substance, similar, price));
-                    }
-                    break;
-                }
-                case "missingdrugs":{
-                    while(rs.next()){
-                    int ID = rs.getInt("ID");
-                    String name = rs.getString("name");
-                    list.add(new Database(ID, name, "", "", ""));
-                }
-                    break;
-                }
             }
             
+            System.out.println("wyswietlono baze");
 
         }catch(Exception e){
-            System.out.println("Error "+e);
+            System.out.println("blad "+e);
         } 
         return list;
     }
