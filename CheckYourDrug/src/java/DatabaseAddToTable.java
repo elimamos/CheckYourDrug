@@ -25,14 +25,23 @@ public class DatabaseAddToTable {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Database connected");
             stmt=conn.createStatement();
-            String sql = "INSERT INTO drugs (ID, name, substance, similar, price)" + "VALUES (null, '"+name+"', '"+substance+"', '"+similar+"', '"+price+"')";
-           System.out.println(sql);
-           // stmt.executeUpdate(sql);
-           if(stmt.execute(sql)){
+            String sqlTableDrugs = "INSERT INTO drugs (ID, name, substance, similar, price)" + "VALUES (null, '"+name+"', '"+substance+"', '"+similar+"', '"+price+"')";
+            String sqlTableMissingDrugs = "DELETE FROM missingdrugs WHERE name='"+name+"'";
+
+            stmt.executeUpdate(sqlTableDrugs); 
+            stmt.executeUpdate(sqlTableMissingDrugs);
+            
+           if(stmt.execute(sqlTableDrugs)){
             System.out.println("ADDED");
            }
            else{
             System.out.println("NOT ADDED");}
+           
+           if(stmt.execute(sqlTableDrugs)){
+            System.out.println("DELETED");
+           }
+           else{
+            System.out.println("NOT DELETED");}
 
         }catch(Exception e){
             System.out.println("ERROR "+e);
