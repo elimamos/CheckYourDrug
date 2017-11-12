@@ -1,6 +1,3 @@
-
-
-
 import java.io.IOException;
 import java.util.regex.Pattern;
 import javax.servlet.ServletException;
@@ -22,12 +19,8 @@ public class CheckPassword extends HttpServlet{
     }
 
     
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String myString=request.getHeader("name");
-       System.out.print(myString);
-        response.sendRedirect("home");
         name = request.getParameter("name").trim();
         substance = request.getParameter("substance").trim();
         similar = request.getParameter("similar").trim();
@@ -50,7 +43,7 @@ public class CheckPassword extends HttpServlet{
        }
        else{
            
-           System.out.print("WRONG ARUMNET - PRICE");
+           System.out.print("WRONG ARGUMENT - PRICE");
           }
     }
  }

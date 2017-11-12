@@ -12,6 +12,14 @@
         <servlet-name>CheckPassword</servlet-name>
         <servlet-class>CheckPassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckDatabase</servlet-name>
+        <servlet-class>CheckDatabase</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckDrug</servlet-name>
+        <servlet-class>CheckDrug</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>databaseCreateServlet</servlet-name>
         <url-pattern>/databaseCreateServlet</url-pattern>
@@ -24,7 +32,14 @@
         <servlet-name>CheckPassword</servlet-name>
         <url-pattern>/CheckPassword</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>CheckDatabase</servlet-name>
+        <url-pattern>/CheckDatabase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckDrug</servlet-name>
+        <url-pattern>/CheckDrug</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

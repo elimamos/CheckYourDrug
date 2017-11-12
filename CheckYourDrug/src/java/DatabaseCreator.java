@@ -4,8 +4,8 @@ import java.sql.*;
 public class DatabaseCreator {
     // JDBC driver name and database URL
 
-     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static String DB_URL = "https://node48511-przetwarzaie.unicloud.pl";
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static String DB_URL = "jdbc:mysql://node48511-przetwarzaie.unicloud.pl/";
 
     static final String USER = "root";
     static final String PASS = "U3czgEov5w";
@@ -28,7 +28,7 @@ public class DatabaseCreator {
             stmt.executeUpdate(sql);
             System.out.println("Database created successfully...");
 
-            DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
+            DB_URL = "jdbc:mysql://node48511-przetwarzaie.unicloud.pl/" + DB_NAME;
             System.out.println("Connecting to selected database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
@@ -52,7 +52,7 @@ public class DatabaseCreator {
             stmt = conn.createStatement();
 
             sql = "CREATE TABLE IF NOT EXISTS missingDrugs"
-                    + "(ID int NOT NULL, "
+                    + "(ID int NOT NULL AUTO_INCREMENT, "
                     + " name VARCHAR(255) NOT NULL)";
 
             stmt.executeUpdate(sql);

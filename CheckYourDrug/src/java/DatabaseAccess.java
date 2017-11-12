@@ -6,8 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Random;
-
 
 public class DatabaseAccess extends HttpServlet {
 
@@ -36,29 +34,21 @@ public class DatabaseAccess extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         DatabaseTakeFromTable dcTakeFromTable = new DatabaseTakeFromTable();
         list=dcTakeFromTable.databaseTable();
-        Random r = new Random();
-        String[] table = {"#ccffcc", "#ffffcc", "#ffcccc", "#cce6ff", "#ffcccc", "#ffccff"};
         PrintWriter out = response.getWriter();
         
+        out.print("<div><table class='table is-striped'><tbody><tr><th>Nazwa</th><th>Substancja czynna</th><th>Inna nazwa</th><th>Cena</th></tr>"); 
         for(Database db : list){
-           
-           int rr=r.nextInt(6);
-                out.print("<div class=\"one\" style=\"background-color: "+table[rr]+"; width: auto; height: auto; margin: auto; font-size: x-large;\">"
-                        + "<b>"+db.name+"</b></br>"
-                        + "<p style=\"border-bottom-style: dotted; border-color: white; text-align: center; color: black\">Substance:</p>"
-                        + db.substance+"</br>"
-                        + "<p style=\"border-bottom-style: dotted; border-color: white; text-align: center; color: black\">Similar:</p>"
-                        + db.similar+"</br>"
-                        + "<p style=\"border-bottom-style: dotted; border-color: white; text-align: center; color: black\">Price:</p>"
-                        + db.price+"</br>"
-                        + "</div>");
+                out.print("<tr>"
+                        + "<td>"+db.name+"</td>"
+                        + "<td>"+db.substance+"</td>"
+                        + "<td>"+db.similar+"</td>"
+                        + "<td>"+db.price+"</td>"
+                        + "</tr>");
                 out.print("</br>");
         }
-      
-        //request.getRequestDispatcher("adminAccount.jsp").forward(request, response);
-    
+        out.print("</tbody></table></div>"); 
     }
-       
+    
 
     protected void doPost(HttpServletRequest request,
         HttpServletResponse response) throws ServletException,
