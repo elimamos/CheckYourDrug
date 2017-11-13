@@ -3,14 +3,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CheckingYourDrugs</title>
+        <title>CheckYourDrug</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     </head>
     <body>
         <section class="hero" style="background-color:#e2e6fa ">
         <div style="text-align: right; margin:10px 10px 10px 10px;">
             <form method="post" action="logIn.jsp">
-                <input class="button is-white" type="submit" value="Panel admina">
+                <input class="button is-white" type="submit" value="Admin Panel">
             </form>           
         </div>
         <div class="hero-body">
@@ -19,16 +19,13 @@
               Check Your Drug
             </h1>
             <h2 class="subtitle">
-              Przetwarzanie rozproszone
+                Distributed computing
             </h2>
           </div>
         </div>
      ` </section>
-        </br>
         <section class="section">
-           <div class="container">
         <jsp:include page="/DatabaseAccess" />
-           </div>
         </section>
 
     </body>

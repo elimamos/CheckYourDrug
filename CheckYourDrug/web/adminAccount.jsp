@@ -14,24 +14,26 @@
               Check Your Drug
             </h1>
             <h2 class="subtitle">
-              Przetwarzanie rozproszone
+              Distributed computing
             </h2>
           </div>
         </div>
      ` </section>
+        <div class="columns">
         <jsp:include page="/AdminPage"/>
-        <div style="text-align: center; margin-top:20px; margin:  auto; width:300px;"> 
+        <div class="column" style="text-align: center; margin-top:20px; margin:  auto; width:250px;"> 
         <form  action="AdminPage" method="post">
             <label class="label">Name:
             <input class="input" type="text" name="name"/></label>
-            <label class="label">Substance:
+            <label class="label">Substace:
             <input class="input" type="text" name="substance"/></label>
             <label class="label">Similar:
             <input class="input" type="text" name="similar"/></label>
             <label class="label">Price:
             <input class="input" type="text" name="price"/></label><br/>
-            <input class="button is-primary" type="submit" value="Dodaj do bazy"/>
+            <input class="button is-primary" type="submit" value="Add to database"/>
         </form>   
+        </div>
         </div>
     </body>
 </html>

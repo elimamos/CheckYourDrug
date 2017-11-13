@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>log in</title>
+        <title>CheckYourDrug</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     </head>
     <body>
@@ -15,7 +15,7 @@
               Check Your Drug
             </h1>
             <h2 class="subtitle">
-              Przetwarzanie rozproszone
+              Distributed computing
             </h2>
           </div>
         </div>
@@ -27,7 +27,7 @@
             <form method="post" class="" action="DatabaseAccess">
                 <label class="label">Login:<input class="input" type="text" name="login" /> </label><br />
                 <label class="label">Password:<input class="input" type="password" name="password" /> </label><br />
-                <input type="submit" class="button is-danger" value="Zaloguj się">
+                <input type="submit" class="button is-danger" value="Log in">
             </form>
         </div>
             </div>
