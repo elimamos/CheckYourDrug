@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.elisa.checkyourdrug.info">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.example.elisa.checkyourdrug.info"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="197dp"
+        android:layout_height="166dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
-</android.support.constraint.ConstraintLayout>
+        android:shadowColor="@color/common_google_signin_btn_text_dark_default"
+        android:shadowRadius="3"
+        android:text="Welcome to CheckYourDrug!"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="298dp"
+        android:layout_weight="0.87">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='This app was created on purpouse of the "Distributed computing" classes at GUT ETI \nby E. Mamos, A. Pancer, K. Ropela IBM students.'
+                android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="In order to use the app please prepare the drug box you want to check in our internet database. Open the scanner and scan the drugs name (this might take a while - the app is saving a few attempts of reading your drugs name). Please take notice that in order to take good mesurents good lightning is nessesary. "
+                android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="When finished scanning a list of names will appear on the screen and you will be asked to choose the correct one. In case the correct can't be found please repeat the scanning process. Next press continue. "
+                android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Once scanned, a list of names will appear on the screen. You will be asked to point the correct spelled name. In case the correct one isn't present please repeat the scanning process. When selected please press continue to get futher information from our database. This includes the active substance, similar products and the price of the searched product. "
+                android:textColor="@color/common_google_signin_btn_text_light_pressed" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/common_google_signin_btn_text_dark_focused"
+        android:onClick="back"
+        android:text="Back"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp" />
+</LinearLayout>

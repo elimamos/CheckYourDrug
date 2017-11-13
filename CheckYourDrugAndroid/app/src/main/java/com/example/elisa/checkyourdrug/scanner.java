@@ -56,6 +56,9 @@ public class scanner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
         readWordsList.clear();
+        int i = readWordsList.size();
+        String test = ""+i;
+        Log.d("SERVER",test);
         cameraView = (SurfaceView) findViewById(R.id.surfaceView);
         textView = (TextView) findViewById(R.id.textView);
 
@@ -126,8 +129,10 @@ public class scanner extends AppCompatActivity {
                                         readWordsList.add(read);
                                     }
                                     if(readWordsList.size()==5){
+
                                         Intent intent= new Intent(getBaseContext(),CheckScannedText.class);
                                         intent.putExtra("String",readWordsList);
+
                                         startActivity(intent);
 
                                           Log.d("TEST",readWordsList.get(0)+ " | "+readWordsList.get(1)+ " | "+readWordsList.get(2)+ " | "+readWordsList.get(3)+ " | "+readWordsList.get(4));
