@@ -19,9 +19,9 @@
           </div>
         </div>
      ` </section>
-        
+        <jsp:include page="/AdminPage"/>
         <div style="text-align: center; margin-top:20px; margin:  auto; width:300px;"> 
-        <form  action="CheckPassword" method="post">
+        <form  action="AdminPage" method="post">
             <label class="label">Name:
             <input class="input" type="text" name="name"/></label>
             <label class="label">Substance:
