@@ -70,6 +70,7 @@ public class CheckDrug extends HttpServlet {
                     response.getWriter().print(noresultinfo);                    
                 }else{
                     sql = "INSERT INTO missingDrugs (name) VALUES ('"+drugName+"')" ;
+                    stmt.executeUpdate(sql);
                     String noresultinfo = "Sorry! Missing drug!"; 
                     response.getWriter().print(noresultinfo);
                 }
