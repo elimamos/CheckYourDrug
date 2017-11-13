@@ -24,6 +24,7 @@ public class CheckDrug extends HttpServlet {
        
          
         String drugName = request.getParameter("name");
+        drugName = drugName.trim(); 
         System.out.println(drugName);
           
         
@@ -60,16 +61,16 @@ public class CheckDrug extends HttpServlet {
                response.getWriter().write(obj.toString());
 
             }else{   
-                sql = "SELECT name WHERE name='"+drugName+"'";
+                sql = "SELECT name FROM missingDrugs WHERE name='"+drugName+"'";
                 System.out.println(sql);
             
                 rs = stmt.executeQuery(sql);
                 if(rs.next()){      
-                    String noresultinfo = "NO RESULT. DRUG IS IN MISSING DRUGS DATABASE"; 
+                    String noresultinfo = "Sorry! Missing drug! We've already added your request to the Missing Drug Database and out stuff wil take care of it in soon future."; 
                     response.getWriter().print(noresultinfo);                    
                 }else{
                     sql = "INSERT INTO missingDrugs (name) VALUES ('"+drugName+"')" ;
-                    String noresultinfo = "NO RESULT. DRUG ADDED TO MISSING DRUGS DATABASE"; 
+                    String noresultinfo = "Sorry! Missing drug!"; 
                     response.getWriter().print(noresultinfo);
                 }
                 

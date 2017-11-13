@@ -47,7 +47,7 @@ public class DatabaseTakeFromTable {
                     }
                     break;
                 }
-                case "missingdrugs":{
+                case "missingDrugs":{
                     while(rs.next()){
                     int ID = rs.getInt("ID");
                     String name = rs.getString("name");

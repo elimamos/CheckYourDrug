@@ -25,8 +25,8 @@ public class DatabaseAddToTable {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Database connected");
             stmt=conn.createStatement();
-            String sqlTableDrugs = "INSERT INTO drugs (ID, name, substance, similar, price)" + "VALUES (null, '"+name+"', '"+substance+"', '"+similar+"', '"+price+"')";
-            String sqlTableMissingDrugs = "DELETE FROM missingdrugs WHERE name='"+name+"'";
+            String sqlTableDrugs = "INSERT INTO drugs (name, substance, similar, price)" + "VALUES ('"+name+"', '"+substance+"', '"+similar+"', '"+price+"')";
+            String sqlTableMissingDrugs = "DELETE FROM missingDrugs WHERE name='"+name+"'";
 
             stmt.executeUpdate(sqlTableDrugs); 
             stmt.executeUpdate(sqlTableMissingDrugs);

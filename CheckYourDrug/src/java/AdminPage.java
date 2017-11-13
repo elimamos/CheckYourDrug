@@ -24,18 +24,28 @@ public class AdminPage extends HttpServlet{
         DatabaseTakeFromTable dcTakeFromTable = new DatabaseTakeFromTable(); 
         //list = dcTakeFromTable.databaseTable(); 
         list=dcTakeFromTable.databaseTable("drugs"); 
-        out.print("<h3>List of drugs in database</h3>"); 
-        out.print("<div>"); 
-        for(Database db : list){ 
-                out.print(db.name+"; "); 
-        } 
-        out.print("</div>"); 
-        list=dcTakeFromTable.databaseTable("missingdrugs"); 
-        out.print("<h3>List of missing drugs in database</h3>"); 
-        out.print("<div>"); 
-        for(Database db : list){ 
-                out.print(db.name+"; "); 
-        } 
+        out.print("<div class='column'><label>Drugs</label><table class='table is-striped'><tbody><tr><th>ID</th><th>Name</th><th>Substance</th><th>Similar</th><th>Price</th></tr>"); 
+        for(Database db : list){
+                out.print("<tr>"
+                        + "<td>"+db.ID+"</td>"
+                        + "<td>"+db.name+"</td>"
+                        + "<td>"+db.substance+"</td>"
+                        + "<td>"+db.similar+"</td>"
+                        + "<td>"+db.price+"</td>"
+                        + "</tr>");
+                out.print("</br>");
+        }
+        out.print("</tbody></table>"); 
+        list=dcTakeFromTable.databaseTable("missingDrugs"); 
+        out.print("<label>Missing drugs</label><table class='table is-striped'><tbody><tr><th>ID</th><th>Name</th></tr>"); 
+        for(Database db : list){
+                out.print("<tr>"
+                        + "<td>"+db.ID+"</td>"
+                        + "<td>"+db.name+"</td>"
+                        + "</tr>");
+                out.print("</br>");
+        }
+        out.print("</tbody></table></div>"); 
     }
 
     
@@ -58,9 +68,9 @@ public class AdminPage extends HttpServlet{
               System.out.print(price);
               
             }
-         DatabaseAddToTable dbAddToTable = new DatabaseAddToTable();
+        DatabaseAddToTable dbAddToTable = new DatabaseAddToTable();
         dbAddToTable.databaseTable(name, substance, similar, price);
-        response.sendRedirect("/CheckYourDrug/adminAccount.jsp");
+        response.sendRedirect("/adminAccount.jsp");
        }
        else{
            
