@@ -58,10 +58,10 @@ public class DatabaseAccess extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         if(nameOfLogin.equals(login) && nameOfPassword.equals(password)){
-            response.sendRedirect("/adminAccount.jsp");
+            response.sendRedirect("adminAccount.jsp");
         }
         else{
-            response.sendRedirect("/index.jsp");
+            response.sendRedirect("index.jsp");
         }
         doGet(request, response);
         }
