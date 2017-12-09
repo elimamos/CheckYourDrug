@@ -50,10 +50,10 @@ public class DatabaseCreator {
             //  Table creation - missingDrugs
             System.out.println("Creating table missingDrugs in given database...");
             stmt = conn.createStatement();
-
             sql = "CREATE TABLE IF NOT EXISTS missingDrugs"
-                    + "(ID int NOT NULL AUTO_INCREMENT, "
-                    + " name VARCHAR(255) NOT NULL)";
+                    + "(ID int NOT NULL AUTO_INCREMENT,"
+                    + " name VARCHAR(255) NOT NULL),"
+                    + " PRIMARY KEY (ID))";
 
             stmt.executeUpdate(sql);
             System.out.println("Created table missingDrugs in given database...");
