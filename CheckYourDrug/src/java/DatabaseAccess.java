@@ -36,7 +36,7 @@ public class DatabaseAccess extends HttpServlet {
         list=dcTakeFromTable.databaseTable("drugs");
         PrintWriter out = response.getWriter();
         
-        out.print("<div><table class='table is-striped'><tbody><tr><th>Name</th><th>Substance</th><th>Similar</th><th>Price</th></tr>"); 
+        out.print("<table class='table is-striped'><tbody><tr><th>Name</th><th>Substance</th><th>Similar</th><th>Price</th></tr>"); 
         for(Database db : list){
                 out.print("<tr>"
                         + "<td>"+db.name+"</td>"
@@ -46,7 +46,7 @@ public class DatabaseAccess extends HttpServlet {
                         + "</tr>");
                 out.print("</br>");
         }
-        out.print("</tbody></table></div>"); 
+        out.print("</tbody></table>"); 
     }
     
 
@@ -58,10 +58,10 @@ public class DatabaseAccess extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         if(nameOfLogin.equals(login) && nameOfPassword.equals(password)){
-            response.sendRedirect("adminAccount.jsp");
+            response.sendRedirect("/adminAccount.jsp");
         }
         else{
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("/index.jsp");
         }
         doGet(request, response);
         }

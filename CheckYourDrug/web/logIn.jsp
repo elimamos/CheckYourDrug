@@ -23,7 +23,7 @@
         <br>
         <div class="section">
             <div class="container">
-        <div style="text-align: center; margin-top:20px; margin: 0 auto; width:300px;">  
+        <div style="text-align: center; margin-top:20px; width:300px;">  
             <form method="post" class="" action="DatabaseAccess">
                 <label class="label">Login:<input class="input" type="text" name="login" /> </label><br />
                 <label class="label">Password:<input class="input" type="password" name="password" /> </label><br />

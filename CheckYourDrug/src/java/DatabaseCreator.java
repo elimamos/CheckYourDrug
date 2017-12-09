@@ -5,10 +5,10 @@ public class DatabaseCreator {
     // JDBC driver name and database URL
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static String DB_URL = "jdbc:mysql://node48511-przetwarzaie.unicloud.pl/";
+    static String DB_URL = "jdbc:mysql://node51111-env-8117487.unicloud.pl/";
 
     static final String USER = "root";
-    static final String PASS = "U3czgEov5w";
+    static final String PASS = "XFTrak88884";
     static final String DB_NAME = "CheckYourDrug";
 
     public void databaseCreate() {
@@ -28,7 +28,7 @@ public class DatabaseCreator {
             stmt.executeUpdate(sql);
             System.out.println("Database created successfully...");
 
-            DB_URL = "jdbc:mysql://node48511-przetwarzaie.unicloud.pl/" + DB_NAME;
+            DB_URL = "jdbc:mysql://node51111-env-8117487.unicloud.pl/" + DB_NAME;
             System.out.println("Connecting to selected database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 

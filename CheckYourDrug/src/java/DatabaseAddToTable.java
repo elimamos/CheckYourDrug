@@ -7,9 +7,9 @@ public class DatabaseAddToTable {
     
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String USER = "root";
-    static final String PASS = "U3czgEov5w";
+    static final String PASS = "XFTrak88884";
     static final String DB_NAME = "CheckYourDrug";
-    static final String DB_URL = "jdbc:mysql://node48511-przetwarzaie.unicloud.pl/" + DB_NAME;
+    static final String DB_URL = "jdbc:mysql://node51111-env-8117487.unicloud.pl/" + DB_NAME;
 
     
     public void databaseTable(String name, String substance, String similar, String price)

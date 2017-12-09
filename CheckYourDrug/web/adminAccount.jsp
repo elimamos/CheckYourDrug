@@ -21,7 +21,7 @@
      ` </section>
         <div class="columns">
         <jsp:include page="/AdminPage"/>
-        <div class="column" style="text-align: center; margin-top:20px; margin:  auto; width:250px;"> 
+        <div class="column" style="text-align: center; width:250px;"> 
         <form  action="AdminPage" method="post">
             <label class="label">Name:
             <input class="input" type="text" name="name"/></label>
