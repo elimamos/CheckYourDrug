@@ -52,7 +52,7 @@ public class DatabaseCreator {
             stmt = conn.createStatement();
             sql = "CREATE TABLE IF NOT EXISTS missingDrugs"
                     + "(ID int NOT NULL AUTO_INCREMENT,"
-                    + " name VARCHAR(255) NOT NULL),"
+                    + " name VARCHAR(255) NOT NULL,"
                     + " PRIMARY KEY (ID))";
 
             stmt.executeUpdate(sql);
