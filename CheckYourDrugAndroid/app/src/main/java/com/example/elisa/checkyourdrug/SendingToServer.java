@@ -33,43 +33,28 @@ private String  response;
             @Override
             public void run() {
                 try {
-                  //  CheckScannedText cst= new CheckScannedText();
                     Log.d("SERVER","Created CST");
-                   // String sSelectedDrugName =cst.getName();
-                 //   Log.d("SERVER",sSelectedDrugName);
+
                     HttpURLConnection urlConnection = null;
-                    String apiUrl = "http://przetwarzaie.unicloud.pl/CheckDrug" ;// concatenate uri with base url eg: localhost:8080/ + uri
+                    String apiUrl = "http://env-8117487.unicloud.pl/CheckDrug" ;
                     URL requestUrl = new URL(apiUrl);
                     urlConnection = (HttpURLConnection) requestUrl.openConnection();
 
-                   // urlConnection.connect();
-                 //  Log.d("SERVER","connected!");
+                  nn  
                     try {
-                        Log.d("SERVER",correctName);
                         response = doPost(urlConnection, correctName);
                         responseDrug=manageResponseString(response);
-Log.d("SERVER",responseDrug.getDrugName());
 
                     }catch(Exception e){
                         e.printStackTrace();
-                        Log.d("SERVER"," POST ERROR");
                     }
                     urlConnection.disconnect();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Log.d("SERVER","ERROR");
                 }
 
 
 
-         /* runOnUiThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        ///Toast.makeText(getApplicationContext(), "Connected to server",Toast.LENGTH_LONG).show();
-                    //    Log.d("SERVER", "Connected to server");
-                    }
-                });*/
 
             }
 
@@ -77,7 +62,7 @@ Log.d("SERVER",responseDrug.getDrugName());
         t.start();
         try {
             t.join();
-            Log.d("SERVER","OUter space "+responseDrug.getDrugName());
+
             return responseDrug;
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -88,8 +73,7 @@ Log.d("SERVER",responseDrug.getDrugName());
     }
     private String doPost(HttpURLConnection urlConnection,String myPostableString) throws Exception {
 
-        //urlConnection.connect(); // no connection is made
-        //  Log.d("SERVER","OK!!");
+
         urlConnection.setRequestMethod("POST");
         urlConnection.setDoOutput(true);
         Hashtable<String,String> params = new Hashtable<String, String>();
@@ -111,7 +95,6 @@ Log.d("SERVER",responseDrug.getDrugName());
         {
             sb.append(line + "\n");
         }
-       //  Log.d("SERVER","RESPONSE:  "+sb.toString());
         return sb.toString();
     }
     private String getQuery(Hashtable<String,String> params) throws UnsupportedEncodingException
@@ -137,18 +120,16 @@ Log.d("SERVER",responseDrug.getDrugName());
         String negativeFeedback="";
         try {
             JSONObject jsonElem = new JSONObject(receivedString);
-          //  Log.d("SERVER","Jsn element: "+ jsonElem.toString());
             String name=jsonElem.getString("name");
             String similar=jsonElem.getString("similar");
             String substance=jsonElem.getString("substance");
             Double price=jsonElem.getDouble("price");
             Drug myDrug = new Drug(name,similar,price,substance);
-           Log.d("SERVER","Jsn element: "+ myDrug.getDrugPrice());
             return myDrug;
 
         }catch(Exception e){
             negativeFeedback=receivedString;
-            Log.d("SERVER","Negative answer: "+ negativeFeedback);
+
             Drug myDrug = new Drug(negativeFeedback,"",0.0,"");
 
             return myDrug;

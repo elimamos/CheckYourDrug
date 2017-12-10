@@ -14,7 +14,6 @@ public class info extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-       // TextView tv= (TextView) findViewById(R.id.textView2);
 
     }
 

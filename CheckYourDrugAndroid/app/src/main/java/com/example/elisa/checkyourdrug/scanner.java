@@ -122,7 +122,7 @@ public class scanner extends AppCompatActivity {
                                     TextBlock item = items.valueAt(i);
                                     String[] some=item.getValue().split(" ");
                                     stringBuilder.append(some[0]);
-                                   // stringBuilder.append("\n");
+
                                     String read= stringBuilder.toString();
                                     read=read.trim();
                                     if(!readWordsList.contains(read)){
@@ -137,14 +137,10 @@ public class scanner extends AppCompatActivity {
 
                                           Log.d("TEST",readWordsList.get(0)+ " | "+readWordsList.get(1)+ " | "+readWordsList.get(2)+ " | "+readWordsList.get(3)+ " | "+readWordsList.get(4));
                                     }
-                                  //  Log.d("TEST",stringBuilder.toString());
-                                }
+                             }
                                 textView.setText(stringBuilder.toString());
                                 mystring=textView.getText().toString();
-                              //  Log.d("TEST",mystring);
-                               /* Intent i= new Intent(getBaseContext(),info.class);
-                                i.putExtra("String",mystring);
-                                startActivity(i);*/
+
                             }
                         });
                     }

@@ -55,9 +55,9 @@ public class CheckScannedText extends AppCompatActivity {
 
 
            Drug myDrug =  sts.checkServerConnected(correctName);
-               //    Log.d("SERVER","Response drug name "+myDrug.getDrugName());
+
             if(myDrug.getDrugSubstance().equals("")) {
-                Log.d("SERVER", "Drug substance zero");
+
 
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
                 alertDialog.setTitle("Missing Drug!");
@@ -71,7 +71,7 @@ public class CheckScannedText extends AppCompatActivity {
                 alertDialog.show();
             }
             else{
-                Log.d("SERVER","substance not zero");
+
                 Intent i = new Intent(this, DrugInfo.class);
                 i.putExtra("drugName",myDrug.getDrugName());
                 i.putExtra("drugSubstance",myDrug.getDrugSubstance());
@@ -83,7 +83,6 @@ public class CheckScannedText extends AppCompatActivity {
         else{
             Toast.makeText(getBaseContext(),"Please select a name or retry by pressing 'back'!",Toast.LENGTH_LONG).show();
         }
-      //  Log.d("SERVER",correctName);
 
 
 
